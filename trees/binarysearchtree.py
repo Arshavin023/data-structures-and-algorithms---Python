@@ -92,11 +92,11 @@ class BinarySearchTreeNode:
         else:
             if self.left is None and self.right is None:
                 return None
-            elif self.right is None:
-                return self.left
             elif self.left is None:
                 return self.right
-            max_val = self.left.find_min()
+            elif self.left is None:
+                return self.right
+            max_val = self.left.find_max()
             self.data = max_val
             self.left = self.left.delete_with_max(max_val)
         return self
@@ -112,16 +112,16 @@ def build_tree(elements):
 
 if __name__ == '__main__':
     # countries = ["india","Pakistan","Germany","USA","China","India","UK","USA"]
-    numbers = [random.randint(1,100) for _ in range(1,100)]
-    # numbers = [2,1,3,4,5,7,4]
+    # numbers = [random.randint(1,100) for _ in range(1,100)]
+    numbers = [2,1,3,4,5,7,4]
     numbers_tree = build_tree(numbers)
     # countries_tree = build_tree(countries)
     # print(countries_tree.in_order_traversal())
     # print(f'Is Nigeria is in the list: {countries_tree.search("Nigeria")}')
-    number_to_delete_with_max = int(input("enter number you desire to delete with max function: "))
+    # number_to_delete_with_max = int(input("enter number you desire to delete with max function: "))
     number_to_delete_with_min = int(input("enter number you desire to delete with min function: "))
-    print(numbers_tree.delete_with_max(number_to_delete_with_max))
-    print(numbers_tree.delete_with_min(number_to_delete_with_min))
+    # numbers_tree.delete_with_max(number_to_delete_with_max)
+    numbers_tree.delete_with_min(number_to_delete_with_min)
     print(f"After deleting number {numbers_tree.in_order_traversal()}")
     print(numbers_tree.search(random.randint(1,100)))
     print(numbers_tree.find_min())
