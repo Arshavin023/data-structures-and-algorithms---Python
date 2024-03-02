@@ -22,27 +22,21 @@ class BinarySearchTreeNode:
     
     def in_order_traversal(self):
         elements = []
-
         if self.left:
             elements += self.left.in_order_traversal()
-
         elements.append(self.data)
-
         if self.right:
             elements += self.right.in_order_traversal()
-
         return elements
     
     def search(self, value):
         if self.data == value:
             return True
-        
         if value < self.data:
             if self.left:
                 return self.left.search(value)
             else:
                 return False
-        
         if value > self.data:
             if self.right:
                 return self.right.search(value)
@@ -85,7 +79,6 @@ class BinarySearchTreeNode:
             min_val = self.right.find_min()
             self.data = min_val
             self.right = self.right.delete_with_min(min_val)
-
         return self
     
     # delete using max value
@@ -106,7 +99,6 @@ class BinarySearchTreeNode:
             max_val = self.left.find_min()
             self.data = max_val
             self.left = self.left.delete_with_max(max_val)
-
         return self
         
 # Utilizing the BinarySearchTreeNode
@@ -126,12 +118,12 @@ if __name__ == '__main__':
     # countries_tree = build_tree(countries)
     # print(countries_tree.in_order_traversal())
     # print(f'Is Nigeria is in the list: {countries_tree.search("Nigeria")}')
-    # print(numbers_tree.in_order_traversal())
-    # print(numbers_tree.search(random.randint(1,100)))
-    # print(numbers_tree.find_min())
-    # print(numbers_tree.find_max())
-    # print(numbers_tree.find_sum())
-    number_to_delete = int(input("enter number you desire to delete: "))
-    # print(numbers_tree.delete_with_max(number_to_delete))
-    print(numbers_tree.delete_with_min(number_to_delete))
+    number_to_delete_with_max = int(input("enter number you desire to delete with max function: "))
+    number_to_delete_with_min = int(input("enter number you desire to delete with min function: "))
+    print(numbers_tree.delete_with_max(number_to_delete_with_max))
+    print(numbers_tree.delete_with_min(number_to_delete_with_min))
     print(f"After deleting number {numbers_tree.in_order_traversal()}")
+    print(numbers_tree.search(random.randint(1,100)))
+    print(numbers_tree.find_min())
+    print(numbers_tree.find_max())
+    print(numbers_tree.find_sum())
