@@ -122,8 +122,8 @@ class DoubleLinkedList:
 
 if __name__ == '__main__':
     double_linked_lists = DoubleLinkedList()
-    # linked_lists.insert_at_beginning(5)
-    # linked_lists.insert_at_beginning(89)
+    linked_lists.insert_at_beginning(5)
+    linked_lists.insert_at_beginning(89)
     # linked_lists.insert_at_end(79)
     # linked_lists.insert_at_end(1)
     # linked_lists.insert_at_end(9876)
